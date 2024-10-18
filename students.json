@@ -1,0 +1,66 @@
+[
+    {
+        "Name": "Alice Johnson",
+        "Batch": "2023",
+        "Academicscore": 88,
+        "Hackathons": 4,
+        "PaperPresentations": 2
+    },
+    {
+        "Name": "Alice Johnson",
+        "Batch": "2023",
+        "Academicscore": 88,
+        "Hackathons": 4,
+        "PaperPresentations": 2
+    },
+    {
+        "Name": "Lokesh",
+        "Batch": "2021",
+        "Academicscore": 75,
+        "Hackathons": 0,
+        "PaperPresentations": 0
+    },
+    {
+        "Name": "Charan",
+        "Batch": "2023",
+        "Academicscore": 90,
+        "Hackathons": 9,
+        "PaperPresentations": 9
+    },
+    {
+        "Name": "Likitha",
+        "Batch": "2021",
+        "Academicscore": 90,
+        "Hackathons": 90,
+        "PaperPresentations": 90
+    },
+    {
+        "Name": "Jamalaiah",
+        "Batch": "1999",
+        "Academicscore": 100,
+        "Hackathons": 100,
+        "PaperPresentations": 1000
+    },
+    {
+        "Name": "Ravikanth ",
+        "Batch": "2004",
+        "Academicscore": 99,
+        "Hackathons": 99,
+        "PaperPresentations": 99
+    },
+    {
+        "Name": "XYZ",
+        "Batch": "1995",
+        "Academicscore": 98,
+        "Hackathons": 10,
+        "PaperPresentations": 10
+    },
+    {
+        "Name": "Lokesh",
+        "Batch": "2021",
+        "Academicscore": 75,
+        "Hackathons": 0,
+        "PaperPresentations": 0
+
+    }
+]
