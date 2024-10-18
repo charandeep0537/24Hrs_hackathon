@@ -4,7 +4,7 @@ import pandas as pd # for Data displaying results in st
 
 # TODO : need to train model based on colelcted data
 def calculate_overall_score(student):
-    score = student["Academicscore"] * 0.5 + student["Hackathons"] * 10 + student["PaperPresentations"] * 5
+    score = student["Academicscore"] * 0.5 + student["ConsistencyScore"] * 0.1 +  student["CoreCoursesScore"] * 0.15 + student["Hackathons"] * 10 + student["PaperPresentations"] * 5 + student["AssistanceScore"] * 0.5
     return round(score,2)
 
 # TODO : ranks are going to given by diversfying order based on Feature importance 
@@ -91,9 +91,9 @@ with col1:
 
         df['Rank'] = df['Rank'].apply(rank_symbol)
         
-        st.dataframe(df[['Rank', 'Name', 'Batch', 'Academicscore', 'Hackathons', 'PaperPresentations', 'Overallscore']], width=700, hide_index=True)
+        st.dataframe(df[['Rank', 'Name', 'Batch', 'Academicscore','ConsistencyScore' , 'CoreCoursesScore' , 'Hackathons', 'PaperPresentations', 'AssistanceScore' , 'Overallscore']], width=700, hide_index=True)
     else:
-        st.dataframe(ranked_student[['Rank', 'Name', 'Batch', 'Academicscore', 'Hackathons', 'PaperPresentations', 'Overallscore']], width=700, hide_index=True)
+        st.dataframe(ranked_student[['Rank', 'Name', 'Batch', 'Academicscore','ConsistencyScore' , 'CoreCoursesScore' , 'Hackathons', 'PaperPresentations', 'AssistanceScore' , 'Overallscore']], width=700, hide_index=True)
 
 
 with col2:
@@ -133,12 +133,21 @@ with st.form(key='student_form'):
     
     # Academic Score should accept values from 0-99
     academic_score = st.number_input("Academic Score", min_value=0, max_value=99)
+
+    #Consistency over semesters
+    consistency_score = st.number_input("Academic Score", min_value=0, max_value=99)
+
+    #Excellencein Core Engineering Courses
+    core_courses_score = st.number_input("Academic Score", min_value=0, max_value=99)
     
     # Hackathons input with options 1-10 or 10+
-    hackathons = st.selectbox("Hackathons", options=["0"] + [str(i) for i in range(1, 11)] + ["10+"])
+    hackathons = st.number_input("Academic Score", min_value=0, max_value=99)
     
     # Paper Presentations input with options 1-10 or 10+
-    paper_presentations = st.selectbox("Paper Presentations", options=["0"] + [str(i) for i in range(1, 11)] + ["10+"])
+    paper_presentations = st.number_input("Academic Score", min_value=0, max_value=99)
+    
+    #Teacher Assistance and contributions
+    assistance_score = st.number_input("Academic Score", min_value=0, max_value=99)
     
     submit_button = st.form_submit_button("Add Student")
     
@@ -151,8 +160,11 @@ with st.form(key='student_form'):
             "Name": name,
             "Batch": batch,
             "Academicscore": academic_score,
+            "ConsistencyScore": consistency_score,
+            "CoreCoursesScore": core_courses_score,
             "Hackathons": hackathons_count,
-            "PaperPresentations": paper_presentations_count
+            "PaperPresentations": paper_presentations_count,
+            "AssistanceScore": assistance_score
         }
         add_student(new_student)
         st.success(f"Added student: {name}")
