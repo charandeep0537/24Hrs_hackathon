@@ -7,20 +7,6 @@
         "PaperPresentations": 2
     },
     {
-        "Name": "Alice Johnson",
-        "Batch": "2023",
-        "Academicscore": 88,
-        "Hackathons": 4,
-        "PaperPresentations": 2
-    },
-    {
-        "Name": "Lokesh",
-        "Batch": "2021",
-        "Academicscore": 75,
-        "Hackathons": 0,
-        "PaperPresentations": 0
-    },
-    {
         "Name": "Charan",
         "Batch": "2023",
         "Academicscore": 90,
@@ -61,6 +47,12 @@
         "Academicscore": 75,
         "Hackathons": 0,
         "PaperPresentations": 0
-
+    },
+    {
+        "Name": "Giri",
+        "Batch": "2024",
+        "Academicscore": 94,
+        "Hackathons": 2,
+        "PaperPresentations": 3
     }
 ]
