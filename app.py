@@ -5,13 +5,14 @@ import pandas as pd # for Data displaying results in st
 # TODO : need to train model based on colelcted data
 def calculate_overall_score(student):
     score = student["Academicscore"] * 0.5 + student["Hackathons"] * 10 + student["PaperPresentations"] * 5
-    return score
+    return round(score,2)
 
 # TODO : ranks are going to given by diversfying order based on Feature importance 
 def assign_rank(students):
     for student in students:
         student["Overallscore"] = calculate_overall_score(student)
-
+        student["Overallscore"] = round(student["Overallscore"],2)
+        
     sorted_students = sorted(students, key=lambda x: x["Overallscore"], reverse=True)
 
     for rank, student in enumerate(sorted_students, start=1):
@@ -73,9 +74,9 @@ with col1:
     """
     st.markdown(student_results, unsafe_allow_html=True)
 
-    ranked_students = display_results() 
+    ranked_student = display_results() 
 
-    if ranked_students:
+    if ranked_student:
         df = pd.DataFrame(ranked_student)
         df['Overallscore'] = (df['Overallscore'] / df['Overallscore'].max()) * 100
         
@@ -91,6 +92,8 @@ with col1:
         df['Rank'] = df['Rank'].apply(rank_symbol)
         
         st.dataframe(df[['Rank', 'Name', 'Batch', 'Academicscore', 'Hackathons', 'PaperPresentations', 'Overallscore']], width=700, hide_index=True)
+    else:
+        st.dataframe(ranked_student[['Rank', 'Name', 'Batch', 'Academicscore', 'Hackathons', 'PaperPresentations', 'Overallscore']], width=700, hide_index=True)
 
 
 with col2:
